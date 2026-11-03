@@ -14,6 +14,8 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <!-- FontAwesome for fallback icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- jsPDF Library (Native Vector PDF Generator) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
     <script>
         tailwind.config = {
@@ -196,7 +198,7 @@
                 <a href="#biodata" class="text-studio-cream/70 hover:text-studio-gold transition-colors">BIODATA</a>
                 <a href="#kategori" class="text-studio-cream/70 hover:text-studio-gold transition-colors">PORTOFOLIO</a>
                 <a href="#lookbook" class="text-studio-cream/70 hover:text-studio-gold transition-colors">LOOKBOOK</a>
-                <a href="#bts" class="text-studio-cream/70 hover:text-studio-gold transition-colors">STUDIO BTS</a>
+                <a href="#bts" class="text-studio-cream/70 hover:text-studio-gold transition-colors">ALBUM</a>
                 <a href="#kontak" class="text-studio-cream/70 hover:text-studio-gold transition-colors">KONTAK</a>
             </nav>
 
@@ -206,7 +208,7 @@
                     <span class="absolute inset-0 bg-studio-gold transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
                     <span class="relative z-10 text-studio-cream group-hover:text-black font-semibold flex items-center gap-1.5 sm:gap-2">
                         <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
-                        <span class="hidden xs:inline">PEMESANAN / </span>BOOKING
+                        <span class="hidden xs:inline">Reservasi </span>Jadwal
                     </span>
                 </button>
                 <!-- Flash Camera Trigger Button -->
@@ -231,7 +233,7 @@
             <div class="lg:col-span-7 space-y-6 text-left">
                 <div class="inline-flex items-center space-x-2 border border-studio-gold/30 bg-studio-gold/5 px-3 py-1 rounded-full">
                     <span class="w-1.5 h-1.5 rounded-full bg-studio-gold"></span>
-                    <span class="font-mono text-xs uppercase tracking-widest text-studio-gold">​Commercial & Hijab Model</span>
+                    <span class="font-mono text-xs uppercase tracking-widest text-studio-gold">Hijab Model</span>
                 </div>
                 
                 <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl leading-none font-normal tracking-tight text-studio-cream">
@@ -267,8 +269,8 @@
                 <!-- Main Polaroid Overlay with Specs Pin Note -->
                 <div class="polaroid absolute w-72 p-4 top-16 right-2 rotate-[6deg] hover:rotate-0 hover:scale-105 hover:z-30 transition-all duration-300 cursor-pointer shadow-2xl z-20">
                     <div class="push-pin -top-2 left-4"></div>
-                    <div onclick="openHeroLightbox('https://lh3.googleusercontent.com/d/1wIoEjq-Q1kwck4DwqqvHNyvXGI7wYH8f')" class="aspect-[3/4] overflow-hidden bg-neutral-900 mb-3 relative group cursor-pointer">
-                        <img src="https://lh3.googleusercontent.com/d/1wIoEjq-Q1kwck4DwqqvHNyvXGI7wYH8f?auto=format&fit=crop&w=800&q=80" alt="ISNAINA FATHIRA Close up" class="w-full h-full object-cover">
+                    <div onclick="openHeroLightbox('https://lh3.googleusercontent.com/d/1f9Qm1G_f5u8dHiOJTten99nlMnqgxK5n')" class="aspect-[3/4] overflow-hidden bg-neutral-900 mb-3 relative group cursor-pointer">
+                        <img src="https://lh3.googleusercontent.com/d/1f9Qm1G_f5u8dHiOJTten99nlMnqgxK5n?auto=format&fit=crop&w=800&q=80" alt="ISNAINA FATHIRA Close up" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-mono text-xs">
                             Klik untuk Zoom
                         </div>
@@ -296,7 +298,7 @@
     <section id="kategori" class="py-24 border-t border-white/5 bg-studio-charcoal/40 relative">
         <div class="max-w-7xl mx-auto px-6 mb-12 flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
-                <span class="font-mono text-xs text-studio-gold uppercase tracking-widest">Kategori Portofolio</span>
+                <span class="font-mono text-xs text-studio-gold uppercase tracking-widest">Portofolio</span>
                 <h2 class="font-serif text-3xl md:text-5xl font-normal text-studio-cream mt-1">Editorial & Komersial</h2>
             </div>
             <p class="text-studio-muted font-sans text-xs max-w-sm font-light">
@@ -389,7 +391,7 @@
 
                     <div class="relative z-10">
                         <h3 class="font-serif text-2xl md:text-4xl text-white font-normal group-hover:text-studio-gold transition-colors">
-                            Outfit Of The Day (OOTD) & Life Style
+                            Outfit Of The Day & Life Style
                         </h3>
                         <p class="text-xs text-studio-cream/70 font-sans mt-2 opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-300 line-clamp-2">
                             Eksplorasi gerak kinetik, bayangan kontras tinggi, dan komposisi artistik dalam format monokromatik.
@@ -409,15 +411,8 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
                 <div>
-                    <span class="font-mono text-xs text-studio-gold uppercase tracking-widest">Studio Lookbook Table</span>
+                    <span class="font-mono text-xs text-studio-gold uppercase tracking-widest">Lookbook Table</span>
                     <h2 class="font-serif text-4xl md:text-6xl font-normal text-studio-cream mt-1">Dinding Polaroid Interaktif</h2>
-                </div>
-                <!-- Filter Badges -->
-                <div class="flex flex-wrap gap-2 font-mono text-xs" id="lookbookFilter">
-                    <button class="px-4 py-2 border border-studio-gold bg-studio-gold text-black font-semibold rounded-full active-filter" onclick="filterLookbook('all')">SEMUA Pemotretan</button>
-                    <button class="px-4 py-2 border border-white/10 hover:border-studio-gold rounded-full text-studio-muted hover:text-white transition-colors" onclick="filterLookbook('vogue')">Vogue Editorial</button>
-                    <button class="px-4 py-2 border border-white/10 hover:border-studio-gold rounded-full text-studio-muted hover:text-white transition-colors" onclick="filterLookbook('beauty')">Kampanye Beauty</button>
-                    <button class="px-4 py-2 border border-white/10 hover:border-studio-gold rounded-full text-studio-muted hover:text-white transition-colors" onclick="filterLookbook('runway')">Paris Fashion Week</button>
                 </div>
             </div>
 
@@ -490,7 +485,7 @@
                     <div id="polaroid-1" class="polaroid-item polaroid absolute w-60 p-3 transition-all duration-500 cursor-pointer shadow-2xl rotate-[6deg] translate-x-32 -translate-y-12 z-10 hover:scale-110 hover:z-40" onclick="openLightbox(1)">
                         <div class="push-pin -top-2 right-6"></div>
                         <div class="aspect-[4/5] bg-neutral-900 overflow-hidden mb-3">
-                            <img src="https://lh3.googleusercontent.com/d/14lpVle9zL5gVx23cPQ-joEBJ6mQTx-uB?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover">
+                            <img src="https://lh3.googleusercontent.com/d/1yAzhf42_uRFGPZGYI5CerU-FFmzB1Ehs?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover">
                         </div>
                         <div class="font-hand text-lg text-center text-neutral-800">Elegant Motif Shoot</div>
                     </div>
@@ -531,10 +526,10 @@
     <section id="biodata" class="py-24 bg-studio-charcoal/50 border-t border-white/5 relative">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center max-w-2xl mx-auto mb-16">
-                <span class="font-mono text-xs text-studio-gold uppercase tracking-widest">Spesifikasi Fisik & Pemesanan</span>
+                <span class="font-mono text-xs text-studio-gold uppercase tracking-widest">INFORMASI MODEL</span>
                 <h2 class="font-serif text-4xl md:text-5xl text-studio-cream font-normal mt-1">Digital Comp Card</h2>
                 <p class="text-studio-muted font-sans text-xs mt-2">
-                    Lembar spesifikasi fisik standar industri fashion internasional untuk agensi dan sutradara pemotretan.
+                    Lembar spesifikasi fisik dan pengukuran resmi untuk agensi, pemotretan, serta pengarah gaya (stylist).
                 </p>
             </div>
 
@@ -547,7 +542,7 @@
                         </div>
                         <div class="flex justify-between items-center font-mono text-xs text-studio-gold">
                             <span>ISNAINA FATHIRA</span>
-                            <span>OFFICIAL SPEC CARD</span>
+                            <span> </span>
                         </div>
                     </div>
                 </div>
@@ -561,7 +556,7 @@
                         <div class="border-b-2 border-dashed border-neutral-400 pb-4 mb-6 flex justify-between items-end">
                             <div>
                                 <h3 class="font-serif text-3xl text-neutral-900 font-bold uppercase tracking-wider">ISNAINA FATHIRA</h3>
-                                <p class="font-mono text-xs text-neutral-600">Agensi Utama: Elite Model Paris / Next London</p>
+                                <p class="font-mono text-xs text-neutral-600">Agensi Utama: Kota Bandung, Jawa Barat.</p>
                             </div>
                             <span class="font-hand text-2xl text-red-700 font-bold">2026 ACTIVE SPEC</span>
                         </div>
@@ -602,7 +597,7 @@
                             </div>
                             <div class="flex justify-between">
                                 <span>Lokasi Saat Ini:</span>
-                                <span class="font-semibold text-neutral-900">Paris / Milan (Siap Perjalanan Global)</span>
+                                <span class="font-semibold text-neutral-900">Kota Bandung, Jawa Barat.</span>
                             </div>
                             <div class="flex justify-between">
                                 <span>Paspor / Visa:</span>
@@ -614,9 +609,9 @@
                         <div class="flex flex-col sm:flex-row gap-4 justify-between items-center">
                             <button onclick="downloadCompCard()" class="w-full sm:w-auto px-6 py-3 bg-neutral-900 text-white font-mono text-xs tracking-wider uppercase hover:bg-studio-gold hover:text-black transition-colors rounded-xs flex items-center justify-center gap-2 font-semibold">
                                 <i data-lucide="download" class="w-4 h-4"></i>
-                                Unduh Comp Card Digital (PDF)
+                                Unduh Comp Card (PDF)
                             </button>
-                            <span class="font-hand text-lg text-neutral-600">Verifikasi Resmi Agensi #EV-2026</span>
+                            <span class="font-hand text-lg text-neutral-600">Verifikasi Resmi #EV-2026</span>
                         </div>
                     </div>
                 </div>
@@ -628,91 +623,260 @@
     <!-- SECTION 5: STUDIO BTS & FILM STRIP REEL -->
     <section id="bts" class="py-24 bg-studio-bg border-t border-white/5 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 mb-12 text-center">
-            <span class="font-mono text-xs text-studio-gold uppercase tracking-widest">Suasana Studio Photoshoot</span>
-            <h2 class="font-serif text-4xl md:text-5xl text-studio-cream font-normal mt-1">Behind The Scenes Film Strip</h2>
+            <span class="font-mono text-xs text-studio-gold uppercase tracking-widest">Galeri Visual</span>
+            <h2 class="font-serif text-4xl md:text-5xl text-studio-cream font-normal mt-1">Capturing the Vibe</h2>
         </div>
 
-        <!-- Film Strip Horizontal Scroll Container -->
+        <!-- Film Strip Container (Flexbox Wrap for 2 Rows) -->
         <div class="relative w-full overflow-x-auto pb-8 pt-4 scrollbar-thin">
-            <div class="flex space-x-4 px-6 min-w-max md:justify-center">
+            <div class="flex flex-col gap-6 px-6 min-w-max items-center justify-center">
                 
-                <!-- Film Frame 1 -->
-                <div class="w-72 bg-black p-3 border-y-8 border-neutral-900 relative group cursor-pointer hover:border-studio-gold transition-colors">
-                    <div class="flex justify-between text-[8px] font-mono text-neutral-500 mb-1">
-                        <span>KODAK PORTRA 400</span>
-                        <span>FRAME 01A</span>
+                <!-- ROW 1 (5 Kartu Pertama) -->
+                <div class="flex space-x-4">
+                    <!-- Film Frame 1 -->
+                    <div class="w-72 bg-black p-3 border-y-8 border-neutral-900 relative group cursor-pointer hover:border-studio-gold transition-colors">
+                        <div class="flex justify-between text-[8px] font-mono text-neutral-500 mb-1">
+                            <span>KODAK PORTRA 400</span>
+                            <span>FRAME 01A</span>
+                        </div>
+                        <div class="aspect-[3/4] bg-neutral-800 overflow-hidden relative">
+                            <img src="https://lh3.googleusercontent.com/d/1VeKmvg7ZVBWtZam6w7gqxJp6gxiN48TU?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-studio-gold/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        </div>
+                        <div class="flex justify-between text-[8px] font-mono text-neutral-500 mt-1">
+                            <span>STUDIO LIGHTING</span>
+                            <span>PARIS SET</span>
+                        </div>
                     </div>
-                    <div class="aspect-[3/4] bg-neutral-800 overflow-hidden relative">
-                        <img src="https://lh3.googleusercontent.com/d/1TE_yWwisKvUxL0g2ZJddm7Vbau6sWOPW?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-studio-gold/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+
+                    <!-- Film Frame 2 -->
+                    <div class="w-72 bg-black p-3 border-y-8 border-neutral-900 relative group cursor-pointer hover:border-studio-gold transition-colors">
+                        <div class="flex justify-between text-[8px] font-mono text-neutral-500 mb-1">
+                            <span>KODAK PORTRA 400</span>
+                            <span>FRAME 02A</span>
+                        </div>
+                        <div class="aspect-[3/4] bg-neutral-800 overflow-hidden relative">
+                            <img src="https://lh3.googleusercontent.com/d/1cbTQV_y_r74QWotrmBQTwFxauqkIOw7g?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-studio-gold/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        </div>
+                        <div class="flex justify-between text-[8px] font-mono text-neutral-500 mt-1">
+                            <span>MAKEUP RETOUCH</span>
+                            <span>0.5s F/2.8</span>
+                        </div>
                     </div>
-                    <div class="flex justify-between text-[8px] font-mono text-neutral-500 mt-1">
-                        <span>STUDIO LIGHTING</span>
-                        <span>PARIS SET</span>
+
+                    <!-- Film Frame 3 -->
+                    <div class="w-72 bg-black p-3 border-y-8 border-neutral-900 relative group cursor-pointer hover:border-studio-gold transition-colors">
+                        <div class="flex justify-between text-[8px] font-mono text-neutral-500 mb-1">
+                            <span>FUJIFILM PRO 400H</span>
+                            <span>FRAME 03A</span>
+                        </div>
+                        <div class="aspect-[3/4] bg-neutral-800 overflow-hidden relative">
+                            <img src="https://lh3.googleusercontent.com/d/1Y8t9fVNLYy7kIWKBy4wqVgvdLuO000yz?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-studio-gold/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        </div>
+                        <div class="flex justify-between text-[8px] font-mono text-neutral-500 mt-1">
+                            <span>RUNWAY REHEARSAL</span>
+                            <span>MILAN</span>
+                        </div>
+                    </div>
+
+                    <!-- Film Frame 4 -->
+                    <div class="w-72 bg-black p-3 border-y-8 border-neutral-900 relative group cursor-pointer hover:border-studio-gold transition-colors">
+                        <div class="flex justify-between text-[8px] font-mono text-neutral-500 mb-1">
+                            <span>ILFORD HP5 B&W</span>
+                            <span>FRAME 04A</span>
+                        </div>
+                        <div class="aspect-[3/4] bg-neutral-800 overflow-hidden relative">
+                            <img src="https://lh3.googleusercontent.com/d/1FyA_fPQK0Cjlm_sU6bIREvzCqWLGy0Jd?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-studio-gold/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        </div>
+                        <div class="flex justify-between text-[8px] font-mono text-neutral-500 mt-1">
+                            <span>MOTION CAPTURE</span>
+                            <span>MONOCHROME</span>
+                        </div>
+                    </div>
+
+                    <!-- Film Frame 5 -->
+                    <div class="w-72 bg-black p-3 border-y-8 border-neutral-900 relative group cursor-pointer hover:border-studio-gold transition-colors">
+                        <div class="flex justify-between text-[8px] font-mono text-neutral-500 mb-1">
+                            <span>KODAK EKTAR 100</span>
+                            <span>FRAME 05A</span>
+                        </div>
+                        <div class="aspect-[3/4] bg-neutral-800 overflow-hidden relative">
+                            <img src="https://lh3.googleusercontent.com/d/1idjuLYpeUpizpd01UsUNTRiCzvlZ1Iwb?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-studio-gold/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        </div>
+                        <div class="flex justify-between text-[8px] font-mono text-neutral-500 mt-1">
+                            <span>COVER SETUP</span>
+                            <span>FLASH 1/250</span>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Film Frame 2 -->
-                <div class="w-72 bg-black p-3 border-y-8 border-neutral-900 relative group cursor-pointer hover:border-studio-gold transition-colors">
-                    <div class="flex justify-between text-[8px] font-mono text-neutral-500 mb-1">
-                        <span>KODAK PORTRA 400</span>
-                        <span>FRAME 02A</span>
+                <!-- ROW 2 (5 Kartu Baru Tepat Di Bawahnya) -->
+                <div class="flex space-x-4">
+                    <!-- Film Frame 6 -->
+                    <div class="w-72 bg-black p-3 border-y-8 border-neutral-900 relative group cursor-pointer hover:border-studio-gold transition-colors">
+                        <div class="flex justify-between text-[8px] font-mono text-neutral-500 mb-1">
+                            <span>KODAK PORTRA 400</span>
+                            <span>FRAME 06A</span>
+                        </div>
+                        <div class="aspect-[3/4] bg-neutral-800 overflow-hidden relative">
+                            <img src="https://lh3.googleusercontent.com/d/1KS_wJ3NAAooHA4ifkjWZcAJvvezGwwHU?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-studio-gold/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        </div>
+                        <div class="flex justify-between text-[8px] font-mono text-neutral-500 mt-1">
+                            <span>KATALOG SHOOT</span>
+                            <span>BANDUNG SET</span>
+                        </div>
                     </div>
-                    <div class="aspect-[3/4] bg-neutral-800 overflow-hidden relative">
-                        <img src="https://lh3.googleusercontent.com/d/1cbTQV_y_r74QWotrmBQTwFxauqkIOw7g?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-studio-gold/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+
+                    <!-- Film Frame 7 -->
+                    <div class="w-72 bg-black p-3 border-y-8 border-neutral-900 relative group cursor-pointer hover:border-studio-gold transition-colors">
+                        <div class="flex justify-between text-[8px] font-mono text-neutral-500 mb-1">
+                            <span>FUJIFILM PRO 400H</span>
+                            <span>FRAME 07A</span>
+                        </div>
+                        <div class="aspect-[3/4] bg-neutral-800 overflow-hidden relative">
+                            <img src="https://lh3.googleusercontent.com/d/1c840evd6U2G2AktLTt9KM4zOJR_Zw6rW?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-studio-gold/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        </div>
+                        <div class="flex justify-between text-[8px] font-mono text-neutral-500 mt-1">
+                            <span>STYLE ADJUSTMENT</span>
+                            <span>SOFT LIGHT</span>
+                        </div>
                     </div>
-                    <div class="flex justify-between text-[8px] font-mono text-neutral-500 mt-1">
-                        <span>MAKEUP RETOUCH</span>
-                        <span>0.5s F/2.8</span>
+
+                    <!-- Film Frame 8 -->
+                    <div class="w-72 bg-black p-3 border-y-8 border-neutral-900 relative group cursor-pointer hover:border-studio-gold transition-colors">
+                        <div class="flex justify-between text-[8px] font-mono text-neutral-500 mb-1">
+                            <span>ILFORD HP5 B&W</span>
+                            <span>FRAME 08A</span>
+                        </div>
+                        <div class="aspect-[3/4] bg-neutral-800 overflow-hidden relative">
+                            <img src="https://lh3.googleusercontent.com/d/1fqSM0rJbFCz7aF-rzMcxPTRmUPIlEEgs?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-studio-gold/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        </div>
+                        <div class="flex justify-between text-[8px] font-mono text-neutral-500 mt-1">
+                            <span>LOOKBOOK EDITORIAL</span>
+                            <span>BEAUTY FOCUS</span>
+                        </div>
+                    </div>
+
+                    <!-- Film Frame 9 -->
+                    <div class="w-72 bg-black p-3 border-y-8 border-neutral-900 relative group cursor-pointer hover:border-studio-gold transition-colors">
+                        <div class="flex justify-between text-[8px] font-mono text-neutral-500 mb-1">
+                            <span>KODAK EKTAR 100</span>
+                            <span>FRAME 09A</span>
+                        </div>
+                        <div class="aspect-[3/4] bg-neutral-800 overflow-hidden relative">
+                            <img src="https://lh3.googleusercontent.com/d/11UK0sWq-6NMwZrTozZSNoeC-lWrI6Kfw?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-studio-gold/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        </div>
+                        <div class="flex justify-between text-[8px] font-mono text-neutral-500 mt-1">
+                            <span>COMMERCIAL CAMPAIGN</span>
+                            <span>OUTDOOR SET</span>
+                        </div>
+                    </div>
+
+                    <!-- Film Frame 10 -->
+                    <div class="w-72 bg-black p-3 border-y-8 border-neutral-900 relative group cursor-pointer hover:border-studio-gold transition-colors">
+                        <div class="flex justify-between text-[8px] font-mono text-neutral-500 mb-1">
+                            <span>KODAK PORTRA 400</span>
+                            <span>FRAME 10A</span>
+                        </div>
+                        <div class="aspect-[3/4] bg-neutral-800 overflow-hidden relative">
+                            <img src="https://lh3.googleusercontent.com/d/1PyG-6UAySKudI4PjXi-xNrRUXanIJK67?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-studio-gold/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        </div>
+                        <div class="flex justify-between text-[8px] font-mono text-neutral-500 mt-1">
+                            <span>FINAL RETOUCH</span>
+                            <span>FLASH 1/500</span>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Film Frame 3 -->
-                <div class="w-72 bg-black p-3 border-y-8 border-neutral-900 relative group cursor-pointer hover:border-studio-gold transition-colors">
-                    <div class="flex justify-between text-[8px] font-mono text-neutral-500 mb-1">
-                        <span>FUJIFILM PRO 400H</span>
-                        <span>FRAME 03A</span>
+                <!-- ROW 3 (5 Kartu Baru Tepat Di Bawahnya) -->
+                <div class="flex space-x-4">
+                    <!-- Film Frame 11 -->
+                    <div class="w-72 bg-black p-3 border-y-8 border-neutral-900 relative group cursor-pointer hover:border-studio-gold transition-colors">
+                        <div class="flex justify-between text-[8px] font-mono text-neutral-500 mb-1">
+                            <span>KODAK PORTRA 400</span>
+                            <span>FRAME 06A</span>
+                        </div>
+                        <div class="aspect-[3/4] bg-neutral-800 overflow-hidden relative">
+                            <img src="https://lh3.googleusercontent.com/d/1_sRE7WimVthSvSZ9pPtmotDLreP--Eg5?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-studio-gold/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        </div>
+                        <div class="flex justify-between text-[8px] font-mono text-neutral-500 mt-1">
+                            <span>KATALOG SHOOT</span>
+                            <span>BANDUNG SET</span>
+                        </div>
                     </div>
-                    <div class="aspect-[3/4] bg-neutral-800 overflow-hidden relative">
-                        <img src="https://lh3.googleusercontent.com/d/1Y8t9fVNLYy7kIWKBy4wqVgvdLuO000yz?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-studio-gold/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                    </div>
-                    <div class="flex justify-between text-[8px] font-mono text-neutral-500 mt-1">
-                        <span>RUNWAY REHEARSAL</span>
-                        <span>MILAN</span>
-                    </div>
-                </div>
 
-                <!-- Film Frame 4 -->
-                <div class="w-72 bg-black p-3 border-y-8 border-neutral-900 relative group cursor-pointer hover:border-studio-gold transition-colors">
-                    <div class="flex justify-between text-[8px] font-mono text-neutral-500 mb-1">
-                        <span>ILFORD HP5 B&W</span>
-                        <span>FRAME 04A</span>
+                    <!-- Film Frame 12 -->
+                    <div class="w-72 bg-black p-3 border-y-8 border-neutral-900 relative group cursor-pointer hover:border-studio-gold transition-colors">
+                        <div class="flex justify-between text-[8px] font-mono text-neutral-500 mb-1">
+                            <span>FUJIFILM PRO 400H</span>
+                            <span>FRAME 07A</span>
+                        </div>
+                        <div class="aspect-[3/4] bg-neutral-800 overflow-hidden relative">
+                            <img src="https://lh3.googleusercontent.com/d/1SB-0yu_PoSChEey0k2Nb5lb3eWPCdGvN?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-studio-gold/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        </div>
+                        <div class="flex justify-between text-[8px] font-mono text-neutral-500 mt-1">
+                            <span>STYLE ADJUSTMENT</span>
+                            <span>SOFT LIGHT</span>
+                        </div>
                     </div>
-                    <div class="aspect-[3/4] bg-neutral-800 overflow-hidden relative">
-                        <img src="https://lh3.googleusercontent.com/d/1FyA_fPQK0Cjlm_sU6bIREvzCqWLGy0Jd?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-studio-gold/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                    </div>
-                    <div class="flex justify-between text-[8px] font-mono text-neutral-500 mt-1">
-                        <span>MOTION CAPTURE</span>
-                        <span>MONOCHROME</span>
-                    </div>
-                </div>
 
-                <!-- Film Frame 5 -->
-                <div class="w-72 bg-black p-3 border-y-8 border-neutral-900 relative group cursor-pointer hover:border-studio-gold transition-colors">
-                    <div class="flex justify-between text-[8px] font-mono text-neutral-500 mb-1">
-                        <span>KODAK EKTAR 100</span>
-                        <span>FRAME 05A</span>
+                    <!-- Film Frame 13 -->
+                    <div class="w-72 bg-black p-3 border-y-8 border-neutral-900 relative group cursor-pointer hover:border-studio-gold transition-colors">
+                        <div class="flex justify-between text-[8px] font-mono text-neutral-500 mb-1">
+                            <span>ILFORD HP5 B&W</span>
+                            <span>FRAME 08A</span>
+                        </div>
+                        <div class="aspect-[3/4] bg-neutral-800 overflow-hidden relative">
+                            <img src="https://lh3.googleusercontent.com/d/1y6Rm6WqW_JP15Wzhs_WargGSCFQ0VjqK?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-studio-gold/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        </div>
+                        <div class="flex justify-between text-[8px] font-mono text-neutral-500 mt-1">
+                            <span>LOOKBOOK EDITORIAL</span>
+                            <span>BEAUTY FOCUS</span>
+                        </div>
                     </div>
-                    <div class="aspect-[3/4] bg-neutral-800 overflow-hidden relative">
-                        <img src="https://lh3.googleusercontent.com/d/1idjuLYpeUpizpd01UsUNTRiCzvlZ1Iwb?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-studio-gold/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+
+                    <!-- Film Frame 14 -->
+                    <div class="w-72 bg-black p-3 border-y-8 border-neutral-900 relative group cursor-pointer hover:border-studio-gold transition-colors">
+                        <div class="flex justify-between text-[8px] font-mono text-neutral-500 mb-1">
+                            <span>KODAK EKTAR 100</span>
+                            <span>FRAME 09A</span>
+                        </div>
+                        <div class="aspect-[3/4] bg-neutral-800 overflow-hidden relative">
+                            <img src="https://lh3.googleusercontent.com/d/1ay1eZuLymGtu6foaK0mqCFW2t0QtgJRR?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-studio-gold/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        </div>
+                        <div class="flex justify-between text-[8px] font-mono text-neutral-500 mt-1">
+                            <span>COMMERCIAL CAMPAIGN</span>
+                            <span>OUTDOOR SET</span>
+                        </div>
                     </div>
-                    <div class="flex justify-between text-[8px] font-mono text-neutral-500 mt-1">
-                        <span>COVER SETUP</span>
-                        <span>FLASH 1/250</span>
+
+                    <!-- Film Frame 15 -->
+                    <div class="w-72 bg-black p-3 border-y-8 border-neutral-900 relative group cursor-pointer hover:border-studio-gold transition-colors">
+                        <div class="flex justify-between text-[8px] font-mono text-neutral-500 mb-1">
+                            <span>KODAK PORTRA 400</span>
+                            <span>FRAME 10A</span>
+                        </div>
+                        <div class="aspect-[3/4] bg-neutral-800 overflow-hidden relative">
+                            <img src="https://lh3.googleusercontent.com/d/1OAmEL9n85y_CDS7ZPCaRCW4IsxsGKeVE?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-studio-gold/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        </div>
+                        <div class="flex justify-between text-[8px] font-mono text-neutral-500 mt-1">
+                            <span>FINAL RETOUCH</span>
+                            <span>FLASH 1/500</span>
+                        </div>
                     </div>
                 </div>
 
@@ -726,23 +890,23 @@
             
             <!-- Left Info & Agency Contacts -->
             <div class="space-y-6 max-w-2xl">
-                <h3 class="font-serif text-3xl md:text-4xl text-studio-cream">Pemesanan & Agensi Representation</h3>
+                <h3 class="font-serif text-3xl md:text-4xl text-studio-cream">Representation & Contact</h3>
                 <p class="text-studio-muted font-sans text-xs leading-relaxed">
-                    Untuk pemesanan jadwal photoshoot editorial, panggung runway fashion week, atau pemodelan kampanye merek global, silakan hubungi manajemen agensi secara langsung.
+                    Untuk pemesanan pemotretan dan endorsement, silakan hubungi manajemen kami melalui kontak yang tertera.
                 </p>
 
                 <div class="space-y-4 font-mono text-xs pt-4">
                     <div class="flex items-start gap-3">
                         <i data-lucide="map-pin" class="w-4 h-4 text-studio-gold shrink-0 mt-0.5"></i>
                         <div>
-                            <span class="block text-white">Indonesia</span>
-                            <span class="text-studio-muted">Kota Bandung, Jawa Barat. Indonesia.</span>
+                            <span class="block text-white">Lokasi</span>
+                            <span class="text-studio-muted">Kota Bandung, Jawa Barat.</span>
                         </div>
                     </div>
                     <div class="flex items-start gap-3">
                         <i data-lucide="mail" class="w-4 h-4 text-studio-gold shrink-0 mt-0.5"></i>
                         <div>
-                            <span class="block text-white">E-MAIL</span>
+                            <span class="block text-white">E-mail</span>
                             <span class="text-studio-muted">ikyhackengine@gmail.com</span>
                         </div>
                     </div>
@@ -750,7 +914,7 @@
                         <i data-lucide="phone" class="w-4 h-4 text-studio-gold shrink-0 mt-0.5"></i>
                         <div>
                             <span class="block text-white">Admin</span>
-                            <span class="text-studio-muted">+62 821 2844 0049</span>
+                            <span class="text-studio-muted">+6282128440049 (WhatsApp)</span>
                         </div>
                     </div>
                 </div>
@@ -798,13 +962,13 @@
                     Detail photoshoot studio dengan konsep lighting yang dramatis.
                 </p>
                 <div class="pt-4 border-t border-white/10 font-mono text-xs space-y-2 text-studio-cream/80">
-    <div>Fotografer: <span class="text-white">Studio Photography</span></div>
-    <div>Stylist: <span class="text-white">Hijab Stylist / MUA</span></div>
-    <div>Lokasi: <span class="text-white">Bandung, Indonesia</span></div>
-</div>
+                    <div>Fotografer: <span class="text-white">Studio Photography</span></div>
+                    <div>Stylist: <span class="text-white">Hijab Stylist / MUA</span></div>
+                    <div>Lokasi: <span class="text-white">Bandung, Indonesia</span></div>
+                </div>
 
                 <button onclick="triggerCameraFlash(); closeLightbox();" class="mt-4 px-6 py-2.5 border border-studio-gold text-studio-gold font-mono text-xs hover:bg-studio-gold hover:text-black transition-colors rounded">
-                    Simulasi Kilatan Flash
+                    Kembali
                 </button>
             </div>
         </div>
@@ -816,8 +980,8 @@
             <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-studio-muted hover:text-white">
                 <i data-lucide="x" class="w-5 h-5"></i>
             </button>
-            <h3 class="font-serif text-2xl text-studio-cream mb-2">Book</h3>
-            <p class="text-xs text-studio-muted font-mono mb-4">Cek jadwal ketersediaan langsung.</p>
+            <h3 class="font-serif text-2xl text-studio-cream mb-2">Cek Ketersediaan Sesi</h3>
+            <p class="text-xs text-studio-muted font-mono mb-4">Hubungi tim admin kami untuk berkonsultasi mengenai kebutuhan pemotretan dan jadwal yang tersedia.</p>
             <div class="space-y-3 font-mono text-xs">
                 <a href="https://wa.me/6282128440049" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3 border border-white/10 rounded hover:border-studio-gold text-white">
                     <span>WhatsApp Admin</span>
@@ -844,7 +1008,7 @@
                 title: "Floral Printed Scarf Series",
                 category: "MOTIF SERIES / FASHION",
                 desc: "Pemotretan katalog busana muslimah motif bunga yang menampilkan keanggunan dan detail motif jilbab.",
-                img: "https://lh3.googleusercontent.com/d/14lpVle9zL5gVx23cPQ-joEBJ6mQTx-uB?auto=format&fit=crop&w=1200&q=80"
+                img: "https://lh3.googleusercontent.com/d/1yAzhf42_uRFGPZGYI5CerU-FFmzB1Ehs?auto=format&fit=crop&w=1200&q=80"
             },
             {
                 title: "Flawless Natural Makeup Look",
@@ -950,13 +1114,13 @@
             document.getElementById('lightboxModal').classList.add('hidden');
         }
 
-function openHeroLightbox(imgSrc) {
-    document.getElementById('lightboxTitle').innerText = "Model Profile Shot";
-    document.getElementById('lightboxCategory').innerText = "HERO / PROFILE";
-    document.getElementById('lightboxDesc').innerText = "Potret profil utama ISNAINA FATHIRA.";
-    document.getElementById('lightboxImage').src = imgSrc;
-    document.getElementById('lightboxModal').classList.remove('hidden');
-}
+        function openHeroLightbox(imgSrc) {
+            document.getElementById('lightboxTitle').innerText = "Model Profile Shot";
+            document.getElementById('lightboxCategory').innerText = "PROFILE";
+            document.getElementById('lightboxDesc').innerText = "Model utama ISNAINA FATHIRA.";
+            document.getElementById('lightboxImage').src = imgSrc;
+            document.getElementById('lightboxModal').classList.remove('hidden');
+        }
 
         // Booking Modal Controls
         function openBookingModal() {
@@ -966,30 +1130,142 @@ function openHeroLightbox(imgSrc) {
             document.getElementById('bookingModal').classList.add('hidden');
         }
 
-        // Comp Card Download Simulation
+        // Native Vector PDF Generation via jsPDF (Robust & Web-Ready)
         function downloadCompCard() {
             triggerCameraFlash();
             const btn = event.currentTarget;
             const originalText = btn.innerHTML;
             btn.innerHTML = `<i class="fa-solid fa-circle-notch animate-spin"></i> Memproses PDF...`;
-            setTimeout(() => {
+
+            try {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF({
+                    orientation: 'portrait',
+                    unit: 'mm',
+                    format: 'a4'
+                });
+
+                // Background
+                doc.setFillColor(18, 18, 22);
+                doc.rect(0, 0, 210, 297, 'F');
+
+                // Decorative Gold Top Bar
+                doc.setFillColor(212, 175, 55);
+                doc.rect(0, 0, 210, 6, 'F');
+
+                // Header Title
+                doc.setTextColor(245, 245, 240);
+                doc.setFont("helvetica", "bold");
+                doc.setFontSize(22);
+                doc.text("ISNAINA FATHIRA", 15, 24);
+
+                doc.setFont("helvetica", "normal");
+                doc.setFontSize(10);
+                doc.setTextColor(138, 138, 147);
+                doc.text("HIGH FASHION & STUDIO EDITORIAL MODEL — OFFICIAL COMP CARD", 15, 31);
+
+                doc.setDrawColor(212, 175, 55);
+                doc.setLineWidth(0.5);
+                doc.line(15, 36, 195, 36);
+
+                // Main Spec Card Box
+                doc.setFillColor(244, 240, 230);
+                doc.roundedRect(15, 45, 180, 165, 3, 3, 'F');
+
+                // Card Header
+                doc.setTextColor(26, 26, 26);
+                doc.setFont("helvetica", "bold");
+                doc.setFontSize(18);
+                doc.text("ISNAINA FATHIRA", 25, 60);
+
+                doc.setFont("helvetica", "normal");
+                doc.setFontSize(9);
+                doc.setTextColor(100, 100, 100);
+                doc.text("Agensi Utama: Elite Model Paris / Next London", 25, 66);
+
+                doc.setTextColor(153, 0, 0);
+                doc.setFont("helvetica", "bold");
+                doc.setFontSize(11);
+                doc.text("2026 ACTIVE SPEC", 145, 60);
+
+                doc.setDrawColor(180, 180, 180);
+                doc.setLineWidth(0.3);
+                doc.line(25, 72, 185, 72);
+
+                // Measurements Grid
+                const specs = [
+                    { label: "TINGGI BADAN (HEIGHT)", val: "178 cm / 5'10\"" },
+                    { label: "LINGKAR DADA (BUST)", val: "84 cm / 33\"" },
+                    { label: "LINGKAR PINGGANG (WAIST)", val: "60 cm / 23.5\"" },
+                    { label: "LINGKAR PINGGUL (HIPS)", val: "89 cm / 35\"" },
+                    { label: "UKURAN SEPATU (SHOES)", val: "39 EU / 8 US" },
+                    { label: "WARNA MATA / RAMBUT", val: "Cokelat Tua" }
+                ];
+
+                let x = 25;
+                let y = 84;
+                specs.forEach((spec, index) => {
+                    doc.setFontSize(7);
+                    doc.setTextColor(120, 120, 120);
+                    doc.setFont("helvetica", "bold");
+                    doc.text(spec.label, x, y);
+
+                    doc.setFontSize(12);
+                    doc.setTextColor(20, 20, 20);
+                    doc.setFont("helvetica", "bold");
+                    doc.text(spec.val, x, y + 6);
+
+                    if ((index + 1) % 3 === 0) {
+                        x = 25;
+                        y += 18;
+                    } else {
+                        x += 55;
+                    }
+                });
+
+                // Additional Information Box
+                doc.setFillColor(225, 220, 210);
+                doc.roundedRect(25, 130, 160, 32, 2, 2, 'F');
+
+                doc.setFontSize(9);
+                doc.setTextColor(40, 40, 40);
+
+                doc.setFont("helvetica", "bold");
+                doc.text("Kategori Model:", 30, 138);
+                doc.setFont("helvetica", "normal");
+                doc.text("Editorial, Runway, High-Fashion, Beauty", 70, 138);
+
+                doc.setFont("helvetica", "bold");
+                doc.text("Lokasi Saat Ini:", 30, 146);
+                doc.setFont("helvetica", "normal");
+                doc.text("Paris / Milan (Siap Perjalanan Global)", 70, 146);
+
+                doc.setFont("helvetica", "bold");
+                doc.text("Paspor / Visa:", 30, 154);
+                doc.setFont("helvetica", "normal");
+                doc.text("Aktif (EU & US Visa Ready)", 70, 154);
+
+                // Agency Verification & Contact Footer inside PDF
+                doc.setFontSize(8);
+                doc.setTextColor(100, 100, 100);
+                doc.text("Verifikasi Resmi Agensi #EV-2026", 25, 178);
+                doc.text("Kontak Direct: +62 821 2844 0049 | ikyhackengine@gmail.com", 25, 184);
+
+                // Footer Note
+                doc.setFontSize(8);
+                doc.setTextColor(138, 138, 147);
+                doc.text("© 2026 ISNAINA FATHIRA — ALL RIGHTS RESERVED.", 15, 285);
+
+                doc.save("Digital_Comp_Card_Isnaina_Fathira.pdf");
+
                 btn.innerHTML = `<i class="fa-solid fa-check text-emerald-400"></i> Comp Card Diunduh!`;
                 setTimeout(() => {
                     btn.innerHTML = originalText;
                 }, 2500);
-            }, 1200);
-        }
-
-        // Filter Lookbook Badges
-        function filterLookbook(category) {
-            const filterBtns = document.querySelectorAll('#lookbookFilter button');
-            filterBtns.forEach(btn => {
-                btn.classList.remove('bg-studio-gold', 'text-black', 'font-semibold');
-                btn.classList.add('text-studio-muted');
-            });
-            event.currentTarget.classList.add('bg-studio-gold', 'text-black', 'font-semibold');
-            event.currentTarget.classList.remove('text-studio-muted');
-            triggerCameraFlash();
+            } catch (err) {
+                console.error("Error generating PDF:", err);
+                btn.innerHTML = originalText;
+            }
         }
     </script>
 </body>
