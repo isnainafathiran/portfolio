@@ -950,6 +950,14 @@
             document.getElementById('lightboxModal').classList.add('hidden');
         }
 
+function openHeroLightbox(imgSrc) {
+    document.getElementById('lightboxTitle').innerText = "Model Profile Shot";
+    document.getElementById('lightboxCategory').innerText = "HERO / PROFILE";
+    document.getElementById('lightboxDesc').innerText = "Potret profil utama ISNAINA FATHIRA.";
+    document.getElementById('lightboxImage').src = imgSrc;
+    document.getElementById('lightboxModal').classList.remove('hidden');
+}
+
         // Booking Modal Controls
         function openBookingModal() {
             document.getElementById('bookingModal').classList.remove('hidden');
