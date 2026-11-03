@@ -19,6 +19,9 @@
         tailwind.config = {
             theme: {
                 extend: {
+                    screens: {
+                        'xs': '400px'
+                    },
                     colors: {
                         studio: {
                             bg: '#0a0a0c',
@@ -156,6 +159,7 @@
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 6px;
+            height: 6px;
         }
         ::-webkit-scrollbar-track {
             background: #0a0a0c;
@@ -178,12 +182,12 @@
 
     <!-- Header Navigation -->
     <header class="fixed top-0 left-0 right-0 z-50 bg-studio-bg/80 backdrop-blur-md border-b border-white/5 transition-all duration-300" id="mainHeader">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between gap-2">
             <!-- Brand Logo -->
-            <a href="#" class="group flex items-center space-x-3">
+            <a href="#" class="group flex items-center space-x-2 sm:space-x-3 shrink-0">
                 <span class="w-2.5 h-2.5 rounded-full bg-studio-gold animate-pulse"></span>
-                <span class="font-serif text-xl tracking-widest text-studio-cream group-hover:text-studio-gold transition-colors font-bold">
-                    ISNAINA FATHIRA <span class="font-mono text-xs text-studio-muted font-normal tracking-normal ml-2">— MODEL</span>
+                <span class="font-serif text-base sm:text-xl tracking-widest text-studio-cream group-hover:text-studio-gold transition-colors font-bold">
+                    ISNAINA FATHIRA <span class="hidden sm:inline-block font-mono text-xs text-studio-muted font-normal tracking-normal ml-2">— MODEL</span>
                 </span>
             </a>
 
@@ -197,16 +201,16 @@
             </nav>
 
             <!-- CTA Action -->
-            <div class="flex items-center space-x-4">
-                <button onclick="openBookingModal()" class="relative group overflow-hidden px-5 py-2.5 rounded-sm border border-studio-gold/40 text-xs font-mono tracking-widest uppercase transition-all duration-300 hover:border-studio-gold">
+            <div class="flex items-center space-x-2 sm:space-x-4 shrink-0">
+                <button onclick="openBookingModal()" class="relative group overflow-hidden px-3 py-2 sm:px-5 sm:py-2.5 rounded-sm border border-studio-gold/40 text-[10px] sm:text-xs font-mono tracking-wider sm:tracking-widest uppercase transition-all duration-300 hover:border-studio-gold">
                     <span class="absolute inset-0 bg-studio-gold transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
-                    <span class="relative z-10 text-studio-cream group-hover:text-black font-semibold flex items-center gap-2">
+                    <span class="relative z-10 text-studio-cream group-hover:text-black font-semibold flex items-center gap-1.5 sm:gap-2">
                         <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
-                        PEMESANAN / BOOKING
+                        <span class="hidden xs:inline">PEMESANAN / </span>BOOKING
                     </span>
                 </button>
                 <!-- Flash Camera Trigger Button -->
-                <button onclick="triggerCameraFlash()" title="Simulasi Flash Kamera Studio" class="p-2 border border-white/10 rounded-sm text-studio-gold hover:bg-white/5 transition-colors">
+                <button onclick="triggerCameraFlash()" title="Simulasi Flash Kamera Studio" class="p-2 border border-white/10 rounded-sm text-studio-gold hover:bg-white/5 transition-colors shrink-0">
                     <i data-lucide="camera" class="w-4 h-4"></i>
                 </button>
             </div>
@@ -302,10 +306,10 @@
 
         <!-- Vertical Dynamic Expanding Grid -->
         <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 h-[600px]" id="categoryGrid">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 h-auto md:h-[600px]" id="categoryGrid">
                 
                 <!-- Category 1: High Fashion & Editorial -->
-                <div class="group relative rounded-lg overflow-hidden border border-white/10 md:hover:col-span-2 transition-all duration-500 ease-out cursor-pointer flex flex-col justify-between p-6 bg-studio-card">
+                <div class="group relative min-h-[300px] md:min-h-0 rounded-lg overflow-hidden border border-white/10 md:hover:col-span-2 transition-all duration-500 ease-out cursor-pointer flex flex-col justify-between p-6 bg-studio-card">
                     <img src="https://lh3.googleusercontent.com/d/1pOu6r0gGJpWeLGx3xsXc2cCFQMzgeD-P?auto=format&fit=crop&w=1200&q=80" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-75 group-hover:scale-105 transition-all duration-700 filter contrast-125" alt="High Fashion">
                     <div class="absolute inset-0 bg-gradient-to-t from-studio-bg via-studio-bg/40 to-transparent"></div>
                     
@@ -318,7 +322,7 @@
                         <h3 class="font-serif text-2xl md:text-4xl text-white font-normal group-hover:text-studio-gold transition-colors">
                             High Fashion & Avant-Garde
                         </h3>
-                        <p class="text-xs text-studio-cream/70 font-sans mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 line-clamp-2">
+                        <p class="text-xs text-studio-cream/70 font-sans mt-2 opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-300 line-clamp-2">
                             Konsep dramatis dengan pencahayaan studio berkarakter tajam, busana desainer haute couture, dan gestur tinggi.
                         </p>
                         <div class="mt-4 flex items-center gap-2 font-mono text-xs text-studio-gold">
@@ -328,7 +332,7 @@
                 </div>
 
                 <!-- Category 2: Komersial & Runway -->
-                <div class="group relative rounded-lg overflow-hidden border border-white/10 md:hover:col-span-2 transition-all duration-500 ease-out cursor-pointer flex flex-col justify-between p-6 bg-studio-card">
+                <div class="group relative min-h-[300px] md:min-h-0 rounded-lg overflow-hidden border border-white/10 md:hover:col-span-2 transition-all duration-500 ease-out cursor-pointer flex flex-col justify-between p-6 bg-studio-card">
                     <img src="https://lh3.googleusercontent.com/d/1dzh4aOtTfB6ZIyxBSX_Upd93m92XAtMy?auto=format&fit=crop&w=1200&q=80" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-75 group-hover:scale-105 transition-all duration-700 filter contrast-110" alt="Runway">
                     <div class="absolute inset-0 bg-gradient-to-t from-studio-bg via-studio-bg/40 to-transparent"></div>
                     
@@ -341,7 +345,7 @@
                         <h3 class="font-serif text-2xl md:text-4xl text-white font-normal group-hover:text-studio-gold transition-colors">
                             Komersial & Panggung Runway
                         </h3>
-                        <p class="text-xs text-studio-cream/70 font-sans mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 line-clamp-2">
+                        <p class="text-xs text-studio-cream/70 font-sans mt-2 opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-300 line-clamp-2">
                             Presentasi produk apparel penuh postur, keselarasan ritme berjalan, serta kampanye merek global.
                         </p>
                         <div class="mt-4 flex items-center gap-2 font-mono text-xs text-studio-gold">
@@ -351,7 +355,7 @@
                 </div>
 
                 <!-- Category 3: Kecantikan & Close-Up -->
-                <div class="group relative rounded-lg overflow-hidden border border-white/10 md:hover:col-span-2 transition-all duration-500 ease-out cursor-pointer flex flex-col justify-between p-6 bg-studio-card">
+                <div class="group relative min-h-[300px] md:min-h-0 rounded-lg overflow-hidden border border-white/10 md:hover:col-span-2 transition-all duration-500 ease-out cursor-pointer flex flex-col justify-between p-6 bg-studio-card">
                     <img src="https://lh3.googleusercontent.com/d/1iTmeOH_5no3BoFBUdZOut1FPt7SRXo11?auto=format&fit=crop&w=1200&q=80" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-75 group-hover:scale-105 transition-all duration-700 filter contrast-125" alt="Beauty Close Up">
                     <div class="absolute inset-0 bg-gradient-to-t from-studio-bg via-studio-bg/40 to-transparent"></div>
                     
@@ -364,7 +368,7 @@
                         <h3 class="font-serif text-2xl md:text-4xl text-white font-normal group-hover:text-studio-gold transition-colors">
                             Kecantikan & Portrait Close-Up
                         </h3>
-                        <p class="text-xs text-studio-cream/70 font-sans mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 line-clamp-2">
+                        <p class="text-xs text-studio-cream/70 font-sans mt-2 opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-300 line-clamp-2">
                             Fokus detail makro pada riasan studio, perawatan kulit premium, ekspresi mata, dan keanggunan simetri wajah.
                         </p>
                         <div class="mt-4 flex items-center gap-2 font-mono text-xs text-studio-gold">
@@ -374,7 +378,7 @@
                 </div>
 
                 <!-- Category 4: Gerakan & Art Motion -->
-                <div class="group relative rounded-lg overflow-hidden border border-white/10 md:hover:col-span-2 transition-all duration-500 ease-out cursor-pointer flex flex-col justify-between p-6 bg-studio-card">
+                <div class="group relative min-h-[300px] md:min-h-0 rounded-lg overflow-hidden border border-white/10 md:hover:col-span-2 transition-all duration-500 ease-out cursor-pointer flex flex-col justify-between p-6 bg-studio-card">
                     <img src="https://lh3.googleusercontent.com/d/1eiSlTTNFX-dPcqf7aMuJEiiZ4MoB1b-A?auto=format&fit=crop&w=1200&q=80" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-75 group-hover:scale-105 transition-all duration-700 filter contrast-125" alt="Motion & Fine Art">
                     <div class="absolute inset-0 bg-gradient-to-t from-studio-bg via-studio-bg/40 to-transparent"></div>
                     
@@ -387,7 +391,7 @@
                         <h3 class="font-serif text-2xl md:text-4xl text-white font-normal group-hover:text-studio-gold transition-colors">
                             Gerakan Dinamis & Seni Hitam Putih
                         </h3>
-                        <p class="text-xs text-studio-cream/70 font-sans mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 line-clamp-2">
+                        <p class="text-xs text-studio-cream/70 font-sans mt-2 opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-300 line-clamp-2">
                             Eksplorasi gerak kinetik, bayangan kontras tinggi, dan komposisi artistik dalam format monokromatik.
                         </p>
                         <div class="mt-4 flex items-center gap-2 font-mono text-xs text-studio-gold">
@@ -628,9 +632,9 @@
             <h2 class="font-serif text-4xl md:text-5xl text-studio-cream font-normal mt-1">Behind The Scenes Film Strip</h2>
         </div>
 
-        <!-- Film Strip Horizontal Scroll Container (Centered) -->
-        <div class="relative w-full overflow-x-auto pb-8 pt-4 scrollbar-thin flex justify-center">
-            <div class="flex space-x-4 px-6 w-max justify-center">
+        <!-- Film Strip Horizontal Scroll Container -->
+        <div class="relative w-full overflow-x-auto pb-8 pt-4 scrollbar-thin">
+            <div class="flex space-x-4 px-6 min-w-max md:justify-center">
                 
                 <!-- Film Frame 1 -->
                 <div class="w-72 bg-black p-3 border-y-8 border-neutral-900 relative group cursor-pointer hover:border-studio-gold transition-colors">
